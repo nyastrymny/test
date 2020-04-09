@@ -1,21 +1,21 @@
 from sys import argv
-import math;
-import functools
 import numpy
-
-
 
 def find_mediana(n):
 	center = len(n) // 2
 	s = sorted(n)
 	return s[center] if len(n) % 2 != 0 else 0.5*(s[center] + s[center - 1])
 
-#не больше 1000 строк
-#исправить эту жесть
-
 file = open(argv[1])
 n = []
-n = [int(i) for i in file]
+
+i = 0
+for str in file:
+	if (i < 1000):
+		n.append(int(str))
+	else:
+		break
+	i += 1
 
 stats = []
 stats.append(numpy.percentile(n, 90))
